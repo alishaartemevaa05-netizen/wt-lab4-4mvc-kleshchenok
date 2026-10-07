@@ -1,0 +1,42 @@
+@model Car
+@{
+    ViewData["Title"] = $"Автомобиль {Model.Brand} {Model.Model}";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4">
+        <div class="card-body">
+            <h1 class="card-title">@Model.Brand @Model.Model</h1>
+            <dl class="row">
+                <dt class="col-sm-3">ID</dt>
+                <dd class="col-sm-9">@Model.Id</dd>
+
+                <dt class="col-sm-3">Марка</dt>
+                <dd class="col-sm-9">@Model.Brand</dd>
+
+                <dt class="col-sm-3">Модель</dt>
+                <dd class="col-sm-9">@Model.Model</dd>
+
+                <dt class="col-sm-3">Год выпуска</dt>
+                <dd class="col-sm-9">@Model.Year</dd>
+
+                <dt class="col-sm-3">Цена за сутки</dt>
+                <dd class="col-sm-9">@Model.PricePerDay руб.</dd>
+
+                <dt class="col-sm-3">Доступен</dt>
+                <dd class="col-sm-9">
+                    @if (Model.IsAvailable)
+                    {
+                        <span class="badge bg-success">Да</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Нет</span>
+                    }
+                </dd>
+            </dl>
+
+            <a asp-action="Index" class="btn btn-secondary">← Назад к списку</a>
+        </div>
+    </div>
+</div>
